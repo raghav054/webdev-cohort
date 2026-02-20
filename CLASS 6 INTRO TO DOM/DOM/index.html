@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+</head>
+<body><div>
+        <h1>To-Do App</h1>
+        <input id="input-field" type="text" placeholder="enter the name">
+        <button id="add-btn" >add</button>
+        <ul id="todo-list"></ul>
+     </div>
+
+    <script>
+        const inputField = document.getElementById("input-field");
+        const addBtn = document.getElementById("add-btn");
+        const list = document.getElementById("todo-list");
+        addBtn.addEventListener("click", () => {
+            const li = document.createElement("li")
+            list.appendChild(li);
+            li.innerText = inputField.value;
+            inputField.value = null;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raghav Gautam - Dark/Light Mode</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --accent-color: #4a86e8;
+            --card-bg: #f5f5f5;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+            --accent-color: #6ba4ff;
+            --card-bg: #2d2d2d;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--accent-color);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--accent-color);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Raghav Gautam</h1>
+            <div class="button-group">
+                <button id="dark-mode-btn">Dark Mode</button>
+                <button id="light-mode-btn">Light Mode</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>About Me</h2>
+                <p>Hello! I'm Raghav Gautam, a web developer passionate about creating interactive and user-friendly websites. This page demonstrates a dark/light mode toggle functionality using JavaScript and CSS variables.</p>
+            </div>
+
+            <div class="card">
+                <h2>Skills</h2>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>Responsive Web Design</li>
+                    <li>Frontend Frameworks</li>
+                    <li>UI/UX Design Principles</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Projects</h2>
+                <p>I've worked on various projects including e-commerce websites, portfolio sites, and web applications. Each project focuses on accessibility, performance, and clean code.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 Raghav Gautam. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Wait for DOM to be fully loaded before accessing elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkBtn = document.getElementById('dark-mode-btn');
+            const lightBtn = document.getElementById('light-mode-btn');
+            const body = document.body;
+            
+            console.log("Dark mode button:", darkBtn);
+            console.log("Light mode button:", lightBtn);
+            
+            // Check for saved theme preference or respect OS preference
+            if (localStorage.getItem('theme') === 'dark' || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
+                body.classList.add('dark-mode');
+                darkBtn.textContent = "Dark Mode Active";
+            } else {
+                body.classList.remove('dark-mode');
+                lightBtn.textContent = "Light Mode Active";
+            }
+            
+            // Dark mode button functionality
+            darkBtn.addEventListener('click', function() {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                darkBtn.textContent = "Dark Mode Active";
+                lightBtn.textContent = "Light Mode";
+            });
+            
+            // Light mode button functionality
+            lightBtn.addEventListener('click', function() {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+                lightBtn.textContent = "Light Mode Active";
+                darkBtn.textContent = "Dark Mode";
+            });
+        });
+    </script>
+</body>
+</html>
