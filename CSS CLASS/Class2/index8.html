@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.relative {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 3px solid #73AD21;
+  border-radius: 10px;
+} 
+
+div.absolute {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  /* right: 10px; */
+  width: 200px;
+  height: 100px;
+  border: 3px solid #73AD21;
+}
+</style>
+</head>
+<body>
+
+<h2>position: absolute;</h2>
+
+<p>An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed):</p>
+
+<div class="relative">This div element has position: relative;
+  <div class="absolute">This div element has position: absolute;</div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+<!-- In CSS, a "positioned ancestor" refers to the closest parent element (or grandparent, and so on, up the document tree) that has a position property value other than static. The static value is the default for all HTML elements and does not allow for positioning using top, bottom, left, or right properties.
+Why it's important:
+Reference for position: absolute:
+When an element is given position: absolute, it is removed from the normal document flow and positioned relative to its closest positioned ancestor. If no such ancestor exists, the element will be positioned relative to the initial containing block (typically the <body> element).
+Controlling Placement:
+The top, bottom, left, and right properties on an absolutely positioned element will then determine its offset from the edges of this positioned ancestor.
+Creating Stacking Contexts:
+A positioned ancestor with a z-index value other than auto also creates a new stacking context, which affects how elements are layered on top of each other.
+Example:
+If you have a div with position: absolute inside another div that has position: relative, the inner div will be positioned relative to the outer div because the outer div is its closest positioned ancestor. If the outer div had position: static, and a grandparent div had position: relative, then the inner div would be positioned relative to the grandparent. -->

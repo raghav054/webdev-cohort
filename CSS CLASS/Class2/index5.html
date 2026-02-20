@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Unit</title>
+
+    <style>
+
+        .p1{
+            font-size: 14px;
+            background-color: lightblue;
+            height: 80vh;
+            width: 80vw;        /* it will change according to the screen height not parent */
+            /* width: 80vh; */
+        }
+        .p2{
+            font-size: 7px;
+        }
+
+       p{
+        font-size: 2em;   /* multiply with parent font size */
+       }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="p1">
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+        <p>Paragraph 3</p>
+    </div>
+    <div class="p2">
+        <p>P 4</p>
+    </div>
+</body>
+
+</html>
